@@ -13,12 +13,35 @@ repositories {
 }
 
 dependencies {
+    implementation("org.junit.jupiter:junit-jupiter:5.8.2")
     testImplementation(kotlin("test"))
 }
 
 tasks.test {
     useJUnitPlatform()
+//    println()
+//    println("${project.buildDir}/resources/logging-test.properties")
+//    println()
+//    systemProperty("java.util.logging.config.file", "${project.buildDir}/resources/test/logging-test.properties")
+//
+//    setForkEvery(1)
+//
+//    testLogging {
+//        showStandardStreams = true
+//    }
 }
+
+//tasks.withType(Test).configureEach {
+//    useJUnitPlatform()
+//
+//    systemProperty 'java.util.logging.config.file', "${project.buildDir}/resources/test/logging-test.properties"
+//
+//    forkEvery = 1
+//
+//    testLogging {
+//        showStandardStreams = true
+//    }
+//}
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
